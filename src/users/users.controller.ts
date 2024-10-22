@@ -5,10 +5,7 @@ import { CreateUserDto } from './dto/CreateUser.dto';
 @Controller('users')
 export class UsersController {
 
-    UsersService : UsersService
-
-    constructor() {
-        this.UsersService = new UsersService
+    constructor(public UsersService : UsersService) {
     }
 
     @Get('/:id')

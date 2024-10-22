@@ -5,10 +5,7 @@ import { CreateBookDto } from './dto/CreateBook.dto';
 @Controller('books')
 export class BooksController {
 
-    BooksService : BooksService
-
-    constructor() {
-        this.BooksService = new BooksService
+    constructor(public BooksService : BooksService) {
     }
 
     @Get('/:id')

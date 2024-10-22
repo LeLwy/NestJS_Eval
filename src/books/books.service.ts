@@ -1,11 +1,10 @@
+import { Injectable } from '@nestjs/common';
 import { BooksRepository } from './books.repository';
 
+@Injectable()
 export class BooksService {
 
-    BooksRepository : BooksRepository
-
-    constructor(){
-        this.BooksRepository = new BooksRepository()
+    constructor(public BooksRepository : BooksRepository){
     }
 
     async findOne(id: string){
