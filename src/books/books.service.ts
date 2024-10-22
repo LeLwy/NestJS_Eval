@@ -1,21 +1,25 @@
 import { Injectable } from '@nestjs/common';
-import { BooksRepository } from './books.repository';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Book } from './books.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class BooksService {
 
-    constructor(public BooksRepository : BooksRepository){
-    }
+    constructor(
+        @InjectRepository(Book)
+        private BooksRepository: Repository<Book>,
+      ) {}
 
-    async findOne(id: string){
-        return await this.BooksRepository.findOne(id)
+    async findOne(id: number){
+        return await this.BooksRepository.findOneBy(id)
     }
 
     async findAll(){
-        return await this.BooksRepository.findAll()
+        return await this.BooksRepository.find()
     }
 
-    async create(content: string){
-        return await this.BooksRepository.create(content)
+    async create(book: Book){
+        return await this.BooksRepository.save(book)
     }
 }
