@@ -3,10 +3,7 @@ import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateBookDto } from './dto/CreateBook.dto';
 
 @Controller('books')
-export class BooksController {}
-
-@Controller('user')
-export class UserController {
+export class BooksController {
 
     BooksService : BooksService
 
