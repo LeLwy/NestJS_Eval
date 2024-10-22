@@ -1,0 +1,8 @@
+## LIST ALL USERS
+
+GET http://localhost:3000/users
+
+## LIST ALL BOOKS
+
+GET http://localhost:3000/books
+
